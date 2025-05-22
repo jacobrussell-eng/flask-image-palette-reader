@@ -13,3 +13,17 @@ header {
 }
 
 main { padding: 10px 0; }
+
+#colour_container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px black;
+    /* border: 2px solid white; */
+}
+
+.colour_box {
+    height: auto;
+    width: auto;    
+    text-align: center;
+}

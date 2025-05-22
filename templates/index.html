@@ -18,12 +18,24 @@
                 <input type="file" name="file" required/><br>
                 <p style="display: inline-block;">Format:</p>
                 <label for="rbg_selector">RGB</label>
-                <input type="radio" name="colour_format" id="rbg_selector" value="rgb">
+                <input type="radio" name="colour_format" id="rbg_selector" value="rgb" checked>
                 <label for="rbg_selector">HEX</label>
                 <input type="radio" name="colour_format" id="hex_selector" value="hex">
                 <br><input type="submit"/>
             </form>
-            <!-- insert palette code here -->
+            <div id="colour_container">
+            {% for c in range(colours|length) %}
+                {% if colour_code == 'rgb' %}
+                <div class="colour_box" style="background-color: rgb{{ colours[c] }}; color: {{ 'black' if (0.2126*colours[c][0]+0.7152*colours[c][1]+0.0722*colours[c][2] > 128) else 'white' }};">
+                    <h3>rgb{{ colours[c] }}</h2>
+                </div>
+                {% else %}
+                <div class="colour_box" style="background-color: {{ colours[c] }};">
+                    <h3>{{ colours[c] }}</h2>
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
         </main>
     </body>
 </html>
